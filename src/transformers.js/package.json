@@ -1,0 +1,11 @@
+{
+  "name": "@standalone-context-provider/transformers",
+  "version": "1.0.0",
+  "description": "Custom build of transformers.js",
+  "main": "dist/transformers.node.cjs",
+  "module": "dist/transformers.js",
+  "types": "dist/transformers.d.ts",
+  "files": [
+    "dist"
+  ]
+}
