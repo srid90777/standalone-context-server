@@ -1,0 +1,34 @@
+{
+  "main": "ncc.js",
+  "outputPath": "bin",
+  "options": ["--no-warnings", "--no-bytecode"],
+  "commonAssets": [
+    "node_modules/@cs/tree-sitter/node_modules/@cs/context-utils/dist/lib/node_modules/web-tree-sitter/tree-sitter.wasm",
+    "node_modules/@cs/tree-sitter/node_modules/@cs/context-utils/dist/lib/node_modules/@cs/tree-sitter/tree-sitter-wasms/**/*",
+    "node_modules/tiktoken/**/*.wasm",
+    "src/transformers.js/dist/*.wasm"
+  ],
+  "platforms": {
+    "linux": {
+      "target": "node20-linux-x64",
+      "outputName": "index-linux",
+      "assets": [
+        "natives/linux/**/*"
+      ]
+    },
+    "windows": {
+      "target": "node20-win-x64",
+      "outputName": "index-win.exe",
+      "assets": [
+        "natives/windows/**/*"
+      ]
+    },
+    "macos": {
+      "target": "node20-macos-x64",
+      "outputName": "index-macos",
+      "assets": [
+        "natives/macos/**/*"
+      ]
+    }
+  }
+}

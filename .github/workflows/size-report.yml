@@ -1,0 +1,92 @@
+name: Size Report
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  analyze-size:
+    name: Analyze Build Sizes
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build all platforms (quick)
+        run: |
+          node scripts/download-onnx-all-platforms.js
+          npm install --no-save --force --ignore-scripts @lancedb/lancedb-win32-x64-msvc @lancedb/lancedb-darwin-x64
+          node scripts/download-natives.js --platform=linux
+          node scripts/download-natives.js --platform=windows
+          node scripts/download-natives.js --platform=macos
+          cp -r natives bin/natives
+          npx @yao-pkg/pkg src/index.js -t node20-linux-x64,node20-win-x64,node20-macos-x64 --compress GZip --options no-warnings --assets "natives/**/*,node_modules/@cs/**/*.wasm,src/transformers.js/dist/*.wasm" --out-path bin
+      
+      - name: Generate size report
+        run: |
+          cat > SIZE_REPORT.md << 'EOF'
+          # Build Size Report
+          
+          ## Binaries
+          
+          | Platform | Binary Size | Natives Size | Total Package |
+          |----------|-------------|--------------|---------------|
+          EOF
+          
+          LINUX_BIN=$(ls -lh bin/index-linux | awk '{print $5}')
+          LINUX_NAT=$(du -sh bin/natives/linux | awk '{print $1}')
+          
+          WIN_BIN=$(ls -lh bin/index-win.exe | awk '{print $5}')
+          WIN_NAT=$(du -sh bin/natives/windows | awk '{print $1}')
+          
+          MAC_BIN=$(ls -lh bin/index-macos | awk '{print $5}')
+          MAC_NAT=$(du -sh bin/natives/macos | awk '{print $1}')
+          
+          echo "| Linux x64 | $LINUX_BIN | $LINUX_NAT | - |" >> SIZE_REPORT.md
+          echo "| Windows x64 | $WIN_BIN | $WIN_NAT | - |" >> SIZE_REPORT.md
+          echo "| macOS x64 | $MAC_BIN | $MAC_NAT | - |" >> SIZE_REPORT.md
+          
+          cat >> SIZE_REPORT.md << 'EOF'
+          
+          ## Native Modules by Platform
+          
+          EOF
+          
+          echo "### Linux" >> SIZE_REPORT.md
+          find bin/natives/linux -type f | wc -l | xargs echo "- Files:" >> SIZE_REPORT.md
+          echo "" >> SIZE_REPORT.md
+          
+          echo "### Windows" >> SIZE_REPORT.md
+          find bin/natives/windows -type f | wc -l | xargs echo "- Files:" >> SIZE_REPORT.md
+          echo "" >> SIZE_REPORT.md
+          
+          echo "### macOS" >> SIZE_REPORT.md
+          find bin/natives/macos -type f | wc -l | xargs echo "- Files:" >> SIZE_REPORT.md
+          
+          cat SIZE_REPORT.md
+      
+      - name: Comment size report on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('SIZE_REPORT.md', 'utf8');
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: report
+            });

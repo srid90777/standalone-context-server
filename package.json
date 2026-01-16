@@ -1,0 +1,61 @@
+{
+  "name": "standalone-context-provider",
+  "version": "1.0.0",
+  "description": "Standalone Context Provider CLI with embedded transformers.js for machine learning and semantic search capabilities",
+  "author": "Sridhar Thillai <sridhar.thillai@aspiresys.com>",
+  "main": "src/index.js",
+  "keywords": [
+    "context-provider",
+    "machine-learning",
+    "embeddings",
+    "semantic-search",
+    "transformers",
+    "cli",
+    "standalone",
+    "code-analysis"
+  ],
+  "bin": {
+    "context-provider": "./dist/index.js"
+  },
+  "scripts": {
+    "clean": "rm -rf dist bin",
+    "pkg": "npm run patch-transformers && pkg -c pkg.json src/index.js",
+    "aws:login": "aws codeartifact login --tool npm --repository projectx --domain projectx --namespace cs",
+    "setup-wasm": "node scripts/setup-wasm.js",
+    "patch-transformers": "node scripts/patch-transformers.js",
+    "build": "npm run clean && npm run pkg",
+    "postinstall": "node scripts/setup-wasm.js && node scripts/patch-transformers.js",
+    "server": "node src/index.js server",
+    "pkg:linux": "node scripts/build-scripts.js linux",
+    "pkg:windows": "node scripts/build-scripts.js windows",
+    "pkg:macos": "node scripts/build-scripts.js macos",
+    "pkg:all": "npm run clean && node scripts/build-scripts.js all",
+    "cleanup:linux": "node scripts/cleanup-node-modules.js linux",
+    "cleanup:windows": "node scripts/cleanup-node-modules.js windows",
+    "cleanup:macos": "node scripts/cleanup-node-modules.js macos",
+    "backup:create": "node scripts/backup-node-modules.js create",
+    "backup:restore": "node scripts/backup-node-modules.js restore",
+    "backup:cleanup": "node scripts/backup-node-modules.js cleanup"
+  },
+  "dependencies": {
+    "@cs/context-provider": "^0.1.10",
+    "@hapi/hapi": "^21.4.3",
+    "@huggingface/jinja": "*",
+    "@standalone-context-provider/transformers": "file:./src/transformers.js",
+    "@yao-pkg/pkg": "^6.11.0",
+    "commander": "^14.0.0",
+    "dotenv": "^17.2.0",
+    "joi": "^18.0.1",
+    "onnxruntime-node": "*",
+    "onnxruntime-web": "*",
+    "sharp": "^0.34.1",
+    "zod": "^4.0.17"
+  },
+  "workspaces": [
+    "src/transformers.js"
+  ],
+  "devDependencies": {
+    "@types/node": "^24.0.14",
+    "typescript": "^5.8.3"
+  }
+}
