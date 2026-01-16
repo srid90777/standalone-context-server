@@ -40,22 +40,19 @@
   "dependencies": {
     "@cs/context-provider": "^0.1.10",
     "@hapi/hapi": "^21.4.3",
-    "@huggingface/jinja": "*",
+    "@huggingface/jinja": "^0.4.0",
     "@standalone-context-provider/transformers": "file:./src/transformers.js",
     "@yao-pkg/pkg": "^6.11.0",
     "commander": "^14.0.0",
     "dotenv": "^17.2.0",
     "joi": "^18.0.1",
-    "onnxruntime-node": "*",
-    "onnxruntime-web": "*",
+    "onnxruntime-node": "1.22.0",
+    "onnxruntime-web": "1.22.0",
     "sharp": "^0.34.1",
     "zod": "^4.0.17"
   },
-  "workspaces": [
-    "src/transformers.js"
-  ],
   "devDependencies": {
-    "@types/node": "^24.0.14",
-    "typescript": "^5.8.3"
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
   }
 }
