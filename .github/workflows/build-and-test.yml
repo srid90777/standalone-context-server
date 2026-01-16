@@ -23,7 +23,7 @@ jobs:
           cache: 'npm'
       
       - name: Install dependencies
-        run: npm ci
+        run: npm install
       
       - name: Download ONNX Runtime for all platforms
         run: node scripts/download-onnx-all-platforms.js
