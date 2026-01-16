@@ -1,0 +1,6 @@
+{
+  "name": "@cs/context-provider",
+  "version": "0.1.10",
+  "description": "Mock context provider for standalone build",
+  "main": "index.js"
+}

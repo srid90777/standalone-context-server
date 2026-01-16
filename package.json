@@ -38,7 +38,7 @@
     "backup:cleanup": "node scripts/backup-node-modules.js cleanup"
   },
   "dependencies": {
-    "@cs/context-provider": "^0.1.10",
+    "@cs/context-provider": "file:packages/cs-context-provider",
     "@hapi/hapi": "^21.4.3",
     "@huggingface/jinja": "^0.4.0",
     "@standalone-context-provider/transformers": "file:./src/transformers.js",
