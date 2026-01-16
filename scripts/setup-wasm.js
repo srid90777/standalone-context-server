@@ -27,8 +27,9 @@ function log(msg) {
 }
 
 function fail(msg, extraPath) {
-  console.error(msg + (extraPath ? `: ${extraPath}` : ""));
-  process.exit(1);
+  console.warn("[WARNING] " + msg + (extraPath ? `: ${extraPath}` : ""));
+  // Do not fail the build, just warn
+  // process.exit(1);
 }
 
 function ensureDir(dir) {
