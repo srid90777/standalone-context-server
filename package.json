@@ -41,6 +41,7 @@
     "@cs/context-provider": "file:packages/cs-context-provider",
     "@hapi/hapi": "^21.4.3",
     "@huggingface/jinja": "^0.4.0",
+    "@lancedb/lancedb-linux-x64-gnu": "^0.23.0",
     "@standalone-context-provider/transformers": "file:./src/transformers.js",
     "@yao-pkg/pkg": "^6.11.0",
     "commander": "^14.0.0",
