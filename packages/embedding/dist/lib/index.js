@@ -49,7 +49,7 @@ var TransformerEmbeddingProvider = class _TransformerEmbeddingProvider extends B
   static pipeline = null;
   static async initialize() {
     if (_TransformerEmbeddingProvider.pipeline === null) {
-      const module = require('../../../../../transformers-pkg-compat.js');
+      const module = require('../../../../transformers-pkg-compat.js');
       _TransformerEmbeddingProvider.pipeline = module.pipeline;
     }
   }
