@@ -1,0 +1,22 @@
+{
+  "name": "@cs/context-config",
+  "version": "0.1.7",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
+  "author": "Jenisha Jebaraj",
+  "dependencies": {
+    "@cs/embedding": "0.1.7",
+    "convict": "^6.2.4",
+    "tiktoken": "^1.0.17"
+  },
+  "devDependencies": {
+    "@cs/coding-standards-config": "0.0.7",
+    "@types/convict": "^6.1.6"
+  },
+  "scripts": {
+    "build": "rimraf dist && tsup",
+    "lint": "eslint './**/*.ts'",
+    "lint:fix": "eslint './**/*.ts' --fix"
+  },
+  "gitHead": "a5f0ec57f850c5add40b2fb9f516c50c57c33c67"
+}

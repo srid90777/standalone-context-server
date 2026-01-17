@@ -1,0 +1,30 @@
+{
+  "name": "@cs/context-utils",
+  "version": "0.1.8",
+  "description": "",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "scripts": {
+    "build": "rimraf dist && tsup",
+    "prettier:fix": "prettier --write \"./**/*.{js,ts,json,md}\"",
+    "lint": "eslint \"./**/*.ts\"",
+    "lint:fix": "eslint \"./**/*.{js,ts} --fix\""
+  },
+  "author": "Jenisha Jebaraj",
+  "license": "ISC",
+  "devDependencies": {
+    "@cs/coding-standards-config": "0.0.7"
+  },
+  "dependencies": {
+    "@cs/context-config": "0.1.7",
+    "ignore": "^7.0.3",
+    "install": "^0.13.0",
+    "keyword-extractor": "^0.0.28",
+    "npm": "^11.2.0",
+    "wink-nlp-utils": "^2.1.0"
+  },
+  "gitHead": "a8bd0d32280711c16e18151f466a308b547ee0ae"
+}

@@ -10,6 +10,9 @@ bin/
 # require transformers.js/dist
 !src/transformers.js/dist
 
+# Allow packages dist directories
+!packages/*/dist
+
 # TypeScript cache
 *.tsbuildinfo
 

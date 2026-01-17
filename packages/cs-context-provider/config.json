@@ -1,0 +1,44 @@
+{
+  "contextProviders": [
+    {
+      "name": "code",
+      "params": {}
+    },
+    {
+      "name": "docs",
+      "params": {}
+    },
+    {
+      "name": "diff",
+      "params": {}
+    },
+    {
+      "name": "terminal",
+      "params": {}
+    },
+    {
+      "name": "problems",
+      "params": {}
+    },
+    {
+      "name": "folder",
+      "params": {}
+    },
+    {
+      "name": "codebase",
+      "params": {}
+    },
+    {
+      "name": "repo-map",
+      "params": {}
+    }
+  ],
+  "embeddingProvider": {
+    "provider": "transformers",
+    "model": "all-MiniLM-L6-v2",
+    "maxChunkSize": 500,
+    "maxBatchSize": 5
+  },
+  "ignoreFile": "/home/asplap2028/Documents/.codespellignore",
+  "globalDir": ".codespell"
+}

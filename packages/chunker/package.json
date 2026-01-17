@@ -1,0 +1,29 @@
+{
+  "name": "@cs/chunker",
+  "version": "0.1.7",
+  "description": "",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "scripts": {
+    "build": "rimraf dist && tsup",
+    "prettier:fix": "prettier --write \"./**/*.{js,ts,json,md}\"",
+    "lint": "eslint \"./**/*.ts\"",
+    "lint:fix": "eslint \"./**/*.{js,ts} --fix\""
+  },
+  "author": "Jenisha Jebaraj",
+  "license": "ISC",
+  "devDependencies": {
+    "@cs/coding-standards-config": "0.0.7"
+  },
+  "peerDependencies": {
+    "@cs/tree-sitter": "0.1.7"
+  },
+  "dependencies": {
+    "@cs/context-utils": "0.1.7",
+    "@cs/llm-tokenizer": "0.1.7"
+  },
+  "gitHead": "a5f0ec57f850c5add40b2fb9f516c50c57c33c67"
+}

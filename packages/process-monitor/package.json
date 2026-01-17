@@ -1,0 +1,25 @@
+{
+  "name": "@cs/process-monitor",
+  "version": "0.1.10",
+  "description": "",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "scripts": {
+    "build": "rimraf dist && tsup",
+    "prettier:fix": "prettier --write \"./**/*.{js,ts,json,md}\"",
+    "lint": "eslint \"./**/*.ts\"",
+    "lint:fix": "eslint src --ext .js,.ts --fix"
+  },
+  "author": "Jenisha Jebaraj",
+  "license": "ISC",
+  "dependencies": {
+    "cross-spawn": "^7.0.6"
+  },
+  "devDependencies": {
+    "@types/cross-spawn": "^6.0.6"
+  },
+  "gitHead": "6066a588c07bdf679fd08be256249a39a601ab70"
+}

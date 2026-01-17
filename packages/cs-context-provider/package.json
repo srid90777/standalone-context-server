@@ -1,6 +1,44 @@
 {
   "name": "@cs/context-provider",
-  "version": "0.1.10",
-  "description": "Mock context provider for standalone build",
-  "main": "index.js"
+  "version": "0.1.11",
+  "description": "",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "scripts": {
+    "build": "rimraf dist && tsup",
+    "prettier:fix": "prettier --write \"./**/*.{js,ts,json,md}\"",
+    "lint": "eslint \"./**/*.ts\"",
+    "lint:fix": "eslint \"./**/*.{js,ts} --fix\""
+  },
+  "author": "Jenisha Jebaraj",
+  "license": "ISC",
+  "devDependencies": {
+    "@cs/coding-standards-config": "^0.0.7",
+    "@types/convict": "^6.1.6",
+    "@types/uuid": "^10.0.0",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.10",
+    "tsconfig-paths": "^4.2.0"
+  },
+  "dependencies": {
+    "@cs/chunker": "file:../chunker",
+    "@cs/context-config": "file:../context-config",
+    "@cs/context-utils": "file:../context-utils",
+    "@cs/embedding": "file:../embedding",
+    "@cs/process-monitor": "file:../process-monitor",
+    "@cs/tree-sitter": "file:../tree-sitter",
+    "@lancedb/lancedb": "^0.13.0",
+    "@types/sequelize": "^4.28.20",
+    "convict": "^6.2.4",
+    "ignore": "^7.0.3",
+    "sequelize": "^6.37.5",
+    "sequelize-typescript": "^2.1.6",
+    "sqlite3": "^5.1.7",
+    "uuid": "^11.0.5",
+    "wink-nlp-utils": "^2.1.0"
+  },
+  "gitHead": "6066a588c07bdf679fd08be256249a39a601ab70"
 }
