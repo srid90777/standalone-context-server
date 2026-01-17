@@ -15,11 +15,8 @@
   },
   "author": "Jenisha Jebaraj",
   "license": "ISC",
-  "devDependencies": {
-    "@cs/coding-standards-config": "0.0.7"
-  },
   "dependencies": {
-    "@cs/context-config": "0.1.7",
+    "@cs/context-config": "file:../context-config",
     "ignore": "^7.0.3",
     "install": "^0.13.0",
     "keyword-extractor": "^0.0.28",

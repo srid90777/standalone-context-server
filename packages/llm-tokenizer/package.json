@@ -15,9 +15,6 @@
   },
   "author": "Jenisha Jebaraj",
   "license": "ISC",
-  "devDependencies": {
-    "@cs/coding-standards-config": "0.0.7"
-  },
   "dependencies": {
     "tiktoken": "^1.0.17"
   },

@@ -15,15 +15,12 @@
   },
   "author": "Jenisha Jebaraj",
   "license": "ISC",
-  "devDependencies": {
-    "@cs/coding-standards-config": "0.0.7"
-  },
   "peerDependencies": {
-    "@cs/tree-sitter": "0.1.7"
+    "@cs/tree-sitter": "file:../tree-sitter"
   },
   "dependencies": {
-    "@cs/context-utils": "0.1.7",
-    "@cs/llm-tokenizer": "0.1.7"
+    "@cs/context-utils": "file:../context-utils",
+    "@cs/llm-tokenizer": "file:../llm-tokenizer"
   },
   "gitHead": "a5f0ec57f850c5add40b2fb9f516c50c57c33c67"
 }
