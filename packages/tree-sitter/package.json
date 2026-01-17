@@ -17,7 +17,7 @@
   "author": "Jenisha Jebaraj",
   "license": "ISC",
   "dependencies": {
-    "@cs/context-utils": "0.1.7",
+    "@cs/context-utils": "file:../context-utils",
     "web-tree-sitter": "^0.24.7"
   },
   "gitHead": "a5f0ec57f850c5add40b2fb9f516c50c57c33c67"
